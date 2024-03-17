@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+  </head>
+  <body>
+    <nav id="desktop-nav">
+      <div class="logo">Jibran Khan</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Portfolio</a></li>
+        <li><a href="#activities">Activities</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section id="profile">
+      <div class="section__pic-container">
+        <img src="./images/jk.jpg" alt="Jibran Ahmed Khan profile picture" />
+      </div>
+      <div class="section__text">
+        <p class="section__text__p1">
+          Hello <span class="waving-hand">👋</span> I'm
+        </p>
+        <h1 class="title">Jibran Ahmed Khan</h1>
+        <p class="section__text__p2"><span id="animatedText"></span></p>
+        <div class="button-container">
+          <button
+            class="button btn-color-2"
+            onclick="window.open('./images/Jibran Ahmed Khan-Resume.pdf')"
+          >
+            Resume
+          </button>
+          <a
+            href="mailto:khanji01@luther.edu"
+            target="_blank"
+            class="button btn-color-1"
+            >Email</a
+          >
+        </div>
+        <div id="socials-container">
+          <a href="http://www.linkedin.com/in/JibranAkhan">
+            <img src="./images/lk.png" alt="My LinkedIn profile" class="icon" />
+          </a>
+          <a href="https://github.com/khanji0/">
+            <img
+              src="./images/github.png"
+              alt="My Github profile"
+              class="icon"
+            />
+          </a>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <div class="mouse">
+          <div class="scroll-wheel"></div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const phrases = ["Data Scientist", "AI Researcher"];
+      let currentPhrase = 0;
+      let currentChar = 0;
+      const textElement = document.getElementById("animatedText");
+      let typingSpeed = 50;
+      let deletingSpeed = 50;
+      let pauseBetweenPhrases = 1000;
+
+      function typePhrase() {
+        if (currentChar < phrases[currentPhrase].length) {
+          textElement.textContent += phrases[currentPhrase].charAt(currentChar);
+          currentChar++;
+          setTimeout(typePhrase, typingSpeed);
+        } else {
+          setTimeout(deletePhrase, pauseBetweenPhrases);
+        }
+      }
+      function deletePhrase() {
+        if (currentChar >= 0) {
+          textElement.textContent = phrases[currentPhrase].substring(
+            0,
+            currentChar
+          );
+          currentChar--;
+          setTimeout(deletePhrase, deletingSpeed);
+        } else {
+          currentPhrase = (currentPhrase + 1) % phrases.length;
+          setTimeout(typePhrase, typingSpeed);
+        }
+      }
+      setTimeout(typePhrase, 1000); // Start the typing effect after 1 second
+    </script>
+
+    <section id="about">
+      <p class="section__text__p1"></p>
+      <h1 class="title">About Me</h1>
+      <div class="section-container">
+        <div class="section__pic-container">
+          <img
+            src="./images/khan.jpg"
+            alt="Profile picture"
+            class="about-pic"
+          />
+        </div>
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <img
+                src="./images/experience.png"
+                alt="Experience icon"
+                class="icon"
+              />
+              <h3>Experience</h3>
+              <p>2+ years as Data Analyst and AI research</p>
+            </div>
+            <div class="details-container">
+              <img
+                src="./images/education.png"
+                alt="Education icon"
+                class="icon"
+              />
+              <h3>Education</h3>
+              <p>Bachelor’s Degree <br />Data Science & Business Management</p>
+            </div>
+          </div>
+          <div class="text-container">
+            <p>
+              Hello! My name is Jibran Ahmed Khan. I'm a senior at Luther
+              College, majoring in Data Science and Business Management. I am
+              passionate about leveraging data to drive business decisions and
+              create impactful solutions. I'm particularly fascinated by the
+              field of AI and its transformative potential in our lives.
+              Currently, I'm working as a research assistant and multimedia
+              technician at Luther College. Previously, I had the opportunity to
+              work at the Mayo Clinic Artificial Intelligence Lab as an AI
+              researcher and as a Data Analyst for GERA. Beyond my academic
+              endeavors, I have a passion for traveling and playing soccer as
+              can be seen in the Activity section. Connect with me on
+              <a
+                href="http://www.linkedin.com/in/JibranAkhan/"
+                style="color: #0077b5"
+                >LinkedIn</a
+              >
+              or explore my
+              <a href="./images/jibran-resume.pdf" style="color: orange"
+                >resume</a
+              >
+              and projects on
+              <a
+                href="https://github.com/khanji0/"
+                style="color: rgb(10, 137, 29)"
+                >GitHub</a
+              >.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h1 class="title">Skills</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container technical-skills">
+            <img src="./images/brain.png" class="brain-img" alt="Brain" />
+            <h2 class="experience-sub-title">Technical Skills</h2>
+            <ul class="skills-list">
+              <li><strong>Python</strong></li>
+              <li><strong>R</strong></li>
+              <li><strong>SQL</strong></li>
+              <li><strong>Pandas</strong></li>
+              <li><strong>NumPy</strong></li>
+              <li><strong>Scikit-Learn </strong></li>
+              <li><strong>Matplotlib</strong></li>
+              <li><strong>Plotly</strong></li>
+              <li><strong>Seaborn</strong></li>
+              <li><strong>OpenCV</strong></li>
+              <li><strong>OpenSlide</strong></li>
+              <li><strong>PyTorch</strong></li>
+              <li><strong> Microsoft Office Suite</strong></li>
+              <li><strong>Tableau</strong></li>
+              <li><strong>PowerBI</strong></li>
+            </ul>
+          </div>
+          <div class="details-container soft-skills">
+            <img src="./images/soft_skill.jpeg" class="soft-img" alt="soft" />
+            <h2 class="experience-sub-title">Soft Skills</h2>
+            <ul class="skills-list">
+              <li><strong>Problem Solving</strong></li>
+              <li><strong>Teamwork</strong></li>
+              <li><strong>Leadership</strong></li>
+              <li><strong>Networking</strong></li>
+              <li><strong>Communication </strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h1 class="title">Portfolio</h1>
+      <div class="projects-nav">
+        <button class="btn" onclick="showSection('research-papers')">
+          Research Papers
+        </button>
+        <button
+          class="btn"
+          onclick="window.open('https://github.com/khanji0', '_blank')"
+        >
+          GitHub Profile
+        </button>
+      </div>
+
+      <div id="all-projects" class="projects-subsection" style="display: none">
+        <!-- You can remove this entire section, which contains the projects -->
+      </div>
+
+      <div id="research-papers" class="projects-subsection">
+        <div class="about-containers">
+          <div class="details-container color-container">
+            <h2 class="experience-sub-title project-title">
+              Rotation-Agnostic Image Representation Learning for Digital
+              Pathology
+            </h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="window.open('https://arxiv.org/pdf/2311.08359.pdf', '_blank')"
+              >
+                View PDF
+              </button>
+            </div>
+          </div>
+
+          <div class="details-container color-container">
+            <h2 class="experience-sub-title project-title">
+              Selection of Distinct Morphologies to Divide & Conquer Gigapixel
+              Pathology Images
+            </h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="window.open('https://arxiv.org/pdf/2309.11510v1.pdf', '_blank')"
+              >
+                View Paper
+              </button>
+            </div>
+          </div>
+
+          <div class="details-container color-container">
+            <h2 class="experience-sub-title project-title">
+              Foundation Models for Histopathology—Fanfare or Flair
+            </h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="window.open('https://www.sciencedirect.com/science/article/pii/S2949761224000142', '_blank')"
+              >
+                View Paper
+              </button>
+            </div>
+          </div>
+
+          <div class="details-container color-container">
+            <h2 class="experience-sub-title project-title">
+              When is a Foundation Model a Foundation Model?
+            </h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="window.open('https://arxiv.org/pdf/2311.09902.pdf', '_blank')"
+              >
+                View Paper
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="activities">
+      <h1 class="title">Activities</h1>
+      <div class="collage-container">
+        <img
+          src="./images/morocco.JPG"
+          alt="Activity 1"
+          class="activity-image"
+        />
+        <img
+          src="./images/roches.JPG"
+          alt="Activity 2"
+          class="activity-image"
+        />
+        <img
+          src="./images/mayo-ab.JPG"
+          alt="Activity 3"
+          class="activity-image"
+        />
+        <img src="./images/ny.JPG" alt="Activity 1" class="activity-image" />
+        <img src="./images/roch.jpeg" alt="Activity 2" class="activity-image" />
+        <img src="./images/isa.jpeg" alt="Activity 3" class="activity-image" />
+        <img src="./images/dubai.JPG" alt="Activity 1" class="activity-image" />
+        <img src="./images/isap.JPG" alt="Activity 2" class="activity-image" />
+        <img
+          src="./images/mayoo.jpeg"
+          alt="Activity 3"
+          class="activity-image"
+        />
+        <img src="./images/paks.jpg" alt="Activity 1" class="activity-image" />
+        <img
+          src="./images/duluth.JPG"
+          alt="Activity 2"
+          class="activity-image"
+        />
+        <img src="./images/a.jpeg" alt="Activity 3" class="activity-image" />
+        <img
+          src="./images/soccer.jpeg"
+          alt="Activity 1"
+          class="activity-image"
+        />
+        <img src="./images/mc.JPG" alt="Activity 2" class="activity-image" />
+        <img
+          src="./images/issaa.jpeg"
+          alt="Activity 3"
+          class="activity-image"
+        />
+      </div>
+    </section>
+
+    <section id="contact">
+      <h1 class="title">Get in Touch</h1>
+      <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+          <p><a href="mailto:khanji01@luther.edu">khanji01@luther.edu</a></p>
+        </div>
+        <div class="contact-info-container contact-linkedin-container">
+          <a href="http://www.linkedin.com/in/JibranAkhan" target="_blank">
+            <img
+              src="./images/lnk.png"
+              alt="LinkedIn icon"
+              class="icon contact-icon"
+            />
+          </a>
+          <p><a href="http://www.linkedin.com/in/JibranAkhan">LinkedIn</a></p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <nav>
+        <div class="nav-links-container">
+          <ul class="nav-links">
+            <li><a href="#desktop-nav">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Portfolio</a></li>
+            <li><a href="#activities">Activities</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <div class="footer-social-icons">
+            <a href="http://www.linkedin.com/in/JibranAkhan" target="_blank">
+              <img src="./images/lk.png" alt="LinkedIn" class="social-icon" />
+            </a>
+            <a href="https://github.com/khanji0/" target="_blank">
+              <img src="./images/github.png" alt="GitHub" class="social-icon" />
+            </a>
+          </div>
+        </div>
+      </nav>
+    </footer>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", (event) => {
+        if (window.scrollY === 0) {
+          document.getElementById("home").scrollIntoView();
+        }
+      });
+    </script>
+  </body>
+</html>
